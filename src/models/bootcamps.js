@@ -28,8 +28,8 @@ const Bootcamp = sequelize.define('Bootcamp',{
     },
 },{
     tableName: 'bootcamp',
-    createdAt: false,
-    updatedAt: false
+    createdAt: true,
+    updatedAt: true
 });
 
 

@@ -16,8 +16,8 @@ const UserBootcamp = sequelize.define('UserBootcamp', {
     },
 },{
     tableName: 'userBootcamp',
-    createdAt: false,
-    updatedAt: false
+    createdAt: true,
+    updatedAt: true
 }
 );
 
