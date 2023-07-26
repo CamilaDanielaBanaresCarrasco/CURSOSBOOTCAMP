@@ -4,14 +4,7 @@ import { UserBootcamp } from "../models/userBootcamp.js";
 async function addUserToBootcamp(req, res) {
   try {
     const { bootcampId, userIds } = req.body;
-
-    // Verificar si el bootcamp existe en la tabla de bootcamps (asegúrate de tener este paso)
-    // ...
-
-    // Verificar si los usuarios existen en la tabla de usuarios (asegúrate de tener este paso)
-    // ...
-
-    // Crear los registros en la tabla userBootcamp
+    
     const records = userIds.map((userId) => ({ idUser: userId, idBootcamp: bootcampId }));
     await UserBootcamp.bulkCreate(records);
 
