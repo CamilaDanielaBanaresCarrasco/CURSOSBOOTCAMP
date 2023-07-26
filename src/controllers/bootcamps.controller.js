@@ -12,9 +12,26 @@ const findById = async (req, res) => {
     res.json(bootcamps);
 }
 
-const create = (req, res) => {
-    res.json("create");
-}
+const create = async (req, res) => {
+    try {
+        const { title, cue, description } = req.body;
+        console.log("Este es el título:", title);
+        console.log("Este es el CUE:", cue);
+        console.log("Esta es la descripción:", description);
+
+        const newBootcamp = await Bootcamp.create({
+            title,
+            cue,
+            description,
+        });
+
+        res.status(201).json(newBootcamp.toJSON());
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al crear el bootcamp." });
+    }
+};
+
 
 const update = (req, res) => {
     res.json("update");

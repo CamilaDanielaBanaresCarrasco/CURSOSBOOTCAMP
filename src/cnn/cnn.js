@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 
-export const sequelize = new Sequelize('postgres://postgres:Kamila123@localhost:5433/adiestramiento');
+export const sequelize = new Sequelize('postgres://postgres:Kamila123@localhost:5433/BBDDadiestrando');
 
 (async () => {
   try {

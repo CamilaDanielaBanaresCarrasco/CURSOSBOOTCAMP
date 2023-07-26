@@ -11,12 +11,30 @@ const findById = async (req, res) => {
     const users = await Users.findByPk(id, {
         include: Bootcamp
     });
-    res.json(bootcamps);
+    res.json(users);
 }
 
-const create = (req, res) => {
-    res.json("create");
-}
+const create = async (req, res) => {
+    try {
+        const { firstName, lastName, email } = req.body;
+        console.log("este es el nombre"+ firstName )
+        console.log("este es el apellido"+ lastName )
+        console.log("este es el email"+ email )
+
+
+        const newUser = await Users.create({
+            firstName,
+            lastName,
+            email,
+        });
+
+        res.status(201).json(newUser.toJSON());
+    } catch (error) {
+        console.error(error);
+        
+        res.status(500).json({ error: "Error al crear el usuario." });
+    }
+};
 
 const update = (req, res) => {
     res.json("update");

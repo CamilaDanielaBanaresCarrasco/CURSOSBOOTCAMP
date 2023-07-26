@@ -1,6 +1,7 @@
 import express from 'express';
 import { bootcampRouter } from '../routes/bootcamp.routers.js';
 import { cursoRouter } from '../routes/user.routers.js'; // Corregir el nombre de la importación
+import { userBootcamp } from '../routes/userBootcamps.routes.js'; // Corregir el nombre de la importación
 
 export default class Server {
 
@@ -19,7 +20,8 @@ export default class Server {
 
     routes() {
         this.app.use('/bootcamps', bootcampRouter);
-        this.app.use('/users', cursoRouter); // Usar cursoRouter en lugar de routerUser
+        this.app.use('/users', cursoRouter); 
+        this.app.use('/userBootcamps', userBootcamp); 
     }
 
     listen() {

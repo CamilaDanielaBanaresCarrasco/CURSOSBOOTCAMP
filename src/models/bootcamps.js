@@ -7,7 +7,7 @@ const Bootcamp = sequelize.define('Bootcamp',{
     id: {
         type: DataTypes.INTEGER(),
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true, // Si deseas que el id se incremente automáticamente
     },
     title: {
         type: DataTypes.STRING(),
@@ -28,8 +28,9 @@ const Bootcamp = sequelize.define('Bootcamp',{
     },
 },{
     tableName: 'bootcamp',
-    createdAt: true,
-    updatedAt: true
+    timestamps: true, // Establece esto en true para habilitar createdAt y updatedAt
+    createdAt: 'createdAtColumn', // Renombra la columna createdAt (opcional)
+    updatedAt: 'updatedAtColumn', // Renombra la columna updatedAt (opcional)
 });
 
 
@@ -45,7 +46,7 @@ Users.belongsToMany(Bootcamp, {
 
 
 
-sequelize.sync()
+//sequelize.sync()
 
 
 export {

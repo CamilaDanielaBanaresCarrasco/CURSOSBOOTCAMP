@@ -6,7 +6,8 @@ const Users = sequelize.define(
   {
     id: {
       type: DataTypes.INTEGER(),
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true // Si deseas que el id se incremente automáticamente
     },
     firstName: {
       type: DataTypes.STRING(),
@@ -29,8 +30,9 @@ const Users = sequelize.define(
   },
   {
     tableName: 'users',
-    createdAt: true,
-    updatedAt: true
+    timestamps: true, // Establece esto en true para habilitar createdAt y updatedAt
+    createdAt: 'createdAtColumn', // Renombra la columna createdAt (opcional)
+    updatedAt: 'updatedAtColumn', // Renombra la columna updatedAt (opcional)
   }
 );
 
