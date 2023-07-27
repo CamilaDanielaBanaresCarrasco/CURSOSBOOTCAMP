@@ -1,5 +1,5 @@
 import { Bootcamp } from "../models/bootcamps.js";
-import { Users } from "../models/users.js";
+import { User } from "../models/users.js";
 
 
 const findAll = (req, res) => {
@@ -8,7 +8,7 @@ const findAll = (req, res) => {
 
 const findById = async (req, res) => {
     const id = req.params.id;
-    const users = await Users.findByPk(id, {
+    const users = await User.findByPk(id, {
         include: Bootcamp
     });
     res.json(users);
@@ -22,7 +22,7 @@ const create = async (req, res) => {
         console.log("este es el email"+ email )
 
 
-        const newUser = await Users.create({
+        const newUser = await User.create({ //build save 
             firstName,
             lastName,
             email,

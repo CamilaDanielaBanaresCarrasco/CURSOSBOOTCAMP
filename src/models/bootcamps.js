@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../cnn/cnn.js";
-import { Users } from "./users.js";
+import { User } from "./users.js";
 import { UserBootcamp } from "./userBootcamp.js";
 
 const Bootcamp = sequelize.define('Bootcamp',{
@@ -34,12 +34,12 @@ const Bootcamp = sequelize.define('Bootcamp',{
 });
 
 
-Bootcamp.belongsToMany(Users, {
+Bootcamp.belongsToMany(User, {
     through: UserBootcamp, // Nombre de la tabla intermedia
     foreignKey: 'bootcampId', // Nombre de la foreign key en la tabla intermedia que hace referencia al modelo Bootcamp
 });
 
-Users.belongsToMany(Bootcamp, {
+User.belongsToMany(Bootcamp, {
     through: UserBootcamp, // Nombre de la tabla intermedia
     foreignKey: 'userId', // Nombre de la foreign key en la tabla intermedia que hace referencia al modelo Users
 });
@@ -51,6 +51,6 @@ Users.belongsToMany(Bootcamp, {
 
 export {
     Bootcamp,
-    Users,
+    User,
     UserBootcamp // Exportamos la tabla intermedia para futuras referencias, si es necesario
 };

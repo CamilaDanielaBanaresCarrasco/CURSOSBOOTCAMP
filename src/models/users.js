@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../cnn/cnn.js";
 
-const Users = sequelize.define(
-  'Users',
+const User  = sequelize.define(
+  'User ',
   {
     id: {
       type: DataTypes.INTEGER(),
@@ -37,5 +37,5 @@ const Users = sequelize.define(
 );
 
 export {
-  Users
+  User 
 };
